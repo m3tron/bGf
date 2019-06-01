@@ -1,0 +1,120 @@
+
+h1, h5 {
+  text-shadow: 2px 3px #000000;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: 'Lato', sans-serif;
+  color: #505962;
+  /* background-image: url(../images/registrationBackground.jpg); */
+}
+
+.ProfileWelcome{
+  font-family: 'Ranga', cursive;
+}
+
+.btn-md {
+  border-width: medium;
+  border-radius: 0;
+  padding: .6rem 1.1rem;
+  text-transform: uppercase;
+  margin: 1rem;
+}
+
+.carousel-item {
+  height: 100vh;
+}
+
+
+.carousel-caption{
+  position: absolute;
+  top: 38%;
+  text-transform: uppercase;
+  width: 50%;
+  right: 0;
+  left: 27%;
+}
+
+.carousel-caption h1{
+  font-size: 2.0rem;
+  font-weight: 700;
+  letter-spacing: .3rem;
+  text-shadow: .1rem .1rem .8rem black;
+  padding-bottom: 1rem;
+}
+
+.carousel-caption h5{
+  font-size: 1.5rem;
+  text-shadow: .1rem .1rem .5rem black;
+  padding-bottom: 1.6rem;
+}
+
+.btn-lg {
+  border-width: medium;
+  border-radius: 0;
+  font-size: 1.1rem;
+}
+
+
+
+/* At 960px */
+
+@media (max-width: 960px) {
+
+  .carousel-caption h1{
+    font-size: 2.0rem;
+    letter-spacing: .15rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .carousel-caption h5{
+    font-size: 1.2rem;
+    padding-bottom: 1.2rem;
+  }
+  
+  .btn-lg {
+    font-size: 1rem;
+  }
+
+}
+
+/* At 768px */
+
+@media (max-width: 768px) {
+ 
+  .carousel-caption h1{
+    font-size: 2.0rem;
+    letter-spacing: .15rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .carousel-caption h5{
+    font-size: 1.2rem;
+    padding-bottom: 1.2rem;
+  }
+  
+  .btn-lg {
+    font-size: 1rem;
+  }
+
+}
+
+/* At 640px */
+@media (max-width: 640px) {
+
+  .carousel-caption h1{
+    font-size: 1.0rem;
+    letter-spacing: .15rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .carousel-caption h5{
+    font-size: 0.5rem;
+    padding-bottom: .5rem;
+  }
+  
+  .btn-lg {
+    font-size: 1rem;
+  }
+}

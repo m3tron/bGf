@@ -1,4 +1,48 @@
 body {
+<<<<<<< HEAD
+    overflow-x: hidden;
+    font-family: 'Lato', sans-serif;
+    color: #b2c5da;
+    background-image: url(../images/profileBackground.jpeg);
+  }
+  
+  .ProfileWelcome{
+    font-family: 'Ranga', cursive;
+  }
+  
+  .navbar{
+    vertical-align: top;
+    background: rgb(235, 235, 235)
+  }
+  
+  .dropdown{
+    margin: 0 auto;
+    margin-top: 0px;
+    width: 150px;
+  }
+  .dropdown-button{
+    padding: 10px;
+    background: white;
+  }
+  
+  
+  .dropdown-button a{
+    color: #333;
+    text-decoration: none;
+  } 
+  
+  .dropdown ul{
+    list-style-type: none;
+  }
+  
+  .btn-md {
+    border-width: medium;
+    border-radius: 0;
+    padding: .6rem 1.1rem;
+    text-transform: uppercase;
+    margin: 1rem;
+  }
+=======
   overflow-x: hidden;
   font-family: "Lato", sans-serif;
   color: #b2c5da;
@@ -9,6 +53,7 @@ body {
 .ProfileWelcome {
   font-family: "Ranga", cursive;
 }
+>>>>>>> 4b119200cf3fe97dca7eb7f14e021be36b6a1364
 
 .navbar {
   vertical-align: top;
@@ -103,3 +148,10 @@ body {
 #profileDropdown li:last-child {
   animation-delay: 0.3s;
 }
+<<<<<<< HEAD
+  
+  
+/* Profile Sidebar */
+
+=======
+>>>>>>> 4b119200cf3fe97dca7eb7f14e021be36b6a1364
