@@ -7,14 +7,18 @@ var passport = require("passport");
 var db = require("../models");
 var auth = require("../config/middleware/auth");
 
-// login page
+// To get to the login page
 router.get("/login", function(req, res) {
-  res.render("login");
+  res.render("login", {
+    style: "styleLogin.css"
+  });
 });
 
-// register page
+// To get to the login page
 router.get("/register", function(req, res) {
-  res.render("register");
+  res.render("register", {
+    style: "styleRegistration.css"
+  });
 });
 
 // login user
@@ -22,10 +26,9 @@ router.post(
   "/login",
   passport.authenticate("local", { failureRedirect: "login" }),
   function(req, res) {
-    res.render("profile");
+    res.redirect("/profile");
     db.User.findOne({ where: { email: req.body.email } }).then(function(user) {
       var id = user.id;
-      console.log(id);
     });
   }
 );
@@ -37,6 +40,7 @@ router.post("/register", function(req, res) {
   var password = req.body.newPassword;
   var password2 = req.body.newPassword2;
   var errors = [];
+  var success = [];
 
   // check if all fields are filled out
   if (!name || !email || !password || !password2) {
@@ -48,15 +52,29 @@ router.post("/register", function(req, res) {
     errors.push("Passwords do not match");
   }
 
+  // if there are errors this will output those errors on register page
   if (errors.length > 0) {
-    res.render("register", { errors });
+    res.render("register", { errors, style: "styleRegistration.css" });
   } else {
-    db.User.findOne();
-    db.User.create({
-      name: name,
-      email: email,
-      password: password
-    }).then(res.redirect("login"));
+    db.User.findOne({ where: { email: email } }).then(function(user) {
+      // checks if user already exists
+      if (user) {
+        errors.push("Account already exists");
+        res.render("register", { errors, style: "styleRegistration.css" });
+      } else {
+        bcrypt.hash(password, 10, function(err, hash) {
+          // encrypts password
+          if (err) throw err;
+          password = hash;
+          success.push("Account created successfully. Please log in.");
+          db.User.create({
+            name: name,
+            email: email,
+            password: password
+          }).then(res.render("login", { success }));
+        });
+      }
+    });
   }
 });
 

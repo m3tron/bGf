@@ -3,6 +3,7 @@
     <a class="nav-link" href="#">Profile</a>
 </nav> --}}
 
+<<<<<<< HEAD
 <div class="col-6-sm col-6-md col-6-lg">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class=" navbar-collapse" id="navbarSupportedContent">
@@ -30,9 +31,55 @@
                         </div>
                     </div>
         </div>
+=======
+
+<nav class="navbar navbar-expand-lg navbar-dark  fixed-top">
+    <div class=" navbar-collapse" id="navbarSupportedContent">
+        <a class="navbar-brand" href="#">
+            <img src="../assets/images/icon.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+            BudgetFriendly
+        </a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+            </li>
+>>>>>>> 4b119200cf3fe97dca7eb7f14e021be36b6a1364
         </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <ul>
+                <div class="nav-item dropdown">
+                    <div class="btn-group">
+                        <div class="">
+                            <nav class="navbar navbar-expand-lg navbar-dark  fixed-top">
+                                <div class=" navbar-collapse" id="navbarSupportedContent">
+
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+                                        </li>
+                                    </ul>
+                                    <form class="form-inline my-2 my-lg-0">
+                                        <ul>
+                                            <div class="nav-item dropdown">
+
+                                                <div class="dropdown" id="profileDropdown">
+                                                    <div class="dropdown-button" id="profileDropdown-button">
+                                                        <a href="#">PROFILE</a>
+                                                    </div>
+                                                    <ul>
+                                                        <li><button class="dropdown-item" type="button">"User"</button>
+                                                        </li>
+                                                        <li><a class="dropdown-item" href="/users/logout">Log out</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+
+                                            </div>
+                                </div>
+            </ul>
         </form>
-</div>
+    </div>
 </nav>
 </div>
 
@@ -47,6 +94,7 @@
 
         <h1 class="ProfileWelcome"> Hello{{name}} </h1>
 
+<<<<<<< HEAD
     </div>
 </div>
 <br>
@@ -54,15 +102,24 @@
 <div class="col-6-sm col-6-md col-6-lg">
 
     <div class="btn-group-vertical btn-group-toggle fixed" data-toggle="buttons">
+=======
+    <h1 class="ProfileWelcome"> Hello{{User.name}} </h1>
+    <br>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons" id="timeOptions">
+>>>>>>> 4b119200cf3fe97dca7eb7f14e021be36b6a1364
         <label class="btn btn-secondary active">
-            <input type="radio" name="options" id="option1" autocomplete="off" checked> 1 Month
+            <input type="radio" name="options" id="option1" autocomplete="off" value="all" checked> All transactions
         </label>
         <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option2" autocomplete="off"> 3 Months
+            <input type="radio" name="options" id="option2" autocomplete="off" value="1"> 1 Month
         </label>
         <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option3" autocomplete="off"> 1 Year
+            <input type="radio" name="options" id="option3" autocomplete="off" value="3"> 3 Months
         </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option4" autocomplete="off" value="12"> 1 Year
+        </label>
+<<<<<<< HEAD
         <label class="btn btn-secondary">
             <input type="radio" name="options" id="option3" autocomplete="off"> All Transaction
         </label>
@@ -70,6 +127,41 @@
         <div class="row">
             <button id="newTransaction" type="button" class="btn btn-primary ml-2" data-toggle="modal"
                 data-target="#exampleModal" data-whatever="@mdo"> New Transaction</button>
+=======
+    </div>
+    <br>
+    <br>
+
+    <div id="tableContainer"></div>
+    <script>
+        function populateTransactions(value) {
+            if (value == "all") {
+                $.get("/transactions").then(function (data) {
+                    $("#tableContainer").html(data);
+                })
+            } else {
+                var Mdate = moment().subtract(parseInt(value), 'months').format();
+                //console.log("one month back ", Mdate);
+                $.get("/transactions", { 'from': Mdate }).then(function (data) {
+                    //console.log(data); 
+                    $("#tableContainer").html(data);
+                })
+            }
+            // Make an AJAX request to /transactions
+            // Put the results inside #tableContainer
+        }
+        $("#timeOptions input").change(function (event) {
+            populateTransactions(event.target.value);
+        });
+        populateTransactions("all");
+    </script>
+    <div class="row justify-content-center">
+
+        <br><br>
+        <div class="row justify-content-center">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                data-whatever="@mdo">New Transaction</button>
+>>>>>>> 4b119200cf3fe97dca7eb7f14e021be36b6a1364
 
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
@@ -81,35 +173,32 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="dropdown show">
-                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
-                                        id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Category
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Utilities</a>
-                                        <a class="dropdown-item" href="#">Health</a>
-                                        <a class="dropdown-item" href="#">Housing</a>
-                                        <a class="dropdown-item" href="#">Grocery</a>
-                                        <a class="dropdown-item" href="#">Automotive</a>
-                                        <a class="dropdown-item" href="#">Enterntainment</a>
-                                        <a class="dropdown-item" href="#">Education</a>
-                                        <a class="dropdown-item" href="#">Misc</a>
-                                    </div>
+                        <form action="/profile" method="POST">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="inputCategory">Category:</label>
+                                    <select id="inputCategory" class="form-control" name="category">
+                                        <option value="Utilities" selected>Utilities</option>
+                                        <option value="Health">Health</option>
+                                        <option value="Housing">Housing</option>
+                                        <option value="Grocery">Grocery</option>
+                                        <option value="Automotive">Automotive</option>
+                                        <option value="Enterntainment">Enterntainment</option>
+                                        <option value="Education">Education</option>
+                                        <option value="Misc">Misc</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="message-text" class="col-form-label">Amount:</label>
-                                    <input type="number" class="form-control" id="amount">
+                                    <input type="number" class="form-control" id="amount" name="amount">
                                 </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" id="addButton">Add Transaction</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="submit" class="btn btn-primary" id="addButton" value="Add Transaction" />
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>

@@ -1,7 +1,9 @@
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
+var bcrypt = require("bcrypt");
 
 var db = require("../models");
+var errors = [];
 
 passport.use(
   new LocalStrategy(
@@ -15,17 +17,23 @@ passport.use(
           email: email
         }
       }).then(function(user) {
-        // console.log(user.password, password);
         if (!user) {
-          return done(null, false, {
-            message: "Email not found."
-          });
-        } else if (password !== user.password) {
-          return done(null, false, {
-            message: "Not a valid password."
-          });
+          console.log("user not found");
+          errors.push("User does not exist");
+          return done(null, false, { errors });
         }
-        return done(null, user);
+
+        // compare password
+        bcrypt.compare(password, user.password, function(err, passwordMatch) {
+          if (err) throw err;
+          if (passwordMatch) {
+            return done(null, user);
+          } else {
+            return done(null, false, {
+              message: "Password is incorrect"
+            });
+          }
+        });
       });
     }
   )

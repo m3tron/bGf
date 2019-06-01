@@ -1,4 +1,5 @@
 body {
+<<<<<<< HEAD
     overflow-x: hidden;
     font-family: 'Lato', sans-serif;
     color: #b2c5da;
@@ -41,69 +42,116 @@ body {
     text-transform: uppercase;
     margin: 1rem;
   }
+=======
+  overflow-x: hidden;
+  font-family: "Lato", sans-serif;
+  color: #b2c5da;
+  background-size: cover;
+  background-image: url(../images/profileBackground.jpeg);
+}
 
-  /* Profile Dropdown Button */
+.ProfileWelcome {
+  font-family: "Ranga", cursive;
+}
+>>>>>>> 4b119200cf3fe97dca7eb7f14e021be36b6a1364
 
-  *{
-    margin: 0;
-    padding: 0;
+.navbar {
+  vertical-align: top;
+  background: none;
+}
+
+.dropdown {
+  margin: 0 auto;
+  margin-top: 0px;
+  width: 150px;
+}
+.dropdown-button {
+  padding: 10px;
+  background: white;
+}
+
+.dropdown-button a {
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown ul {
+  list-style-type: none;
+}
+
+.btn-md {
+  border-width: medium;
+  border-radius: 0;
+  padding: 0.6rem 1.1rem;
+  text-transform: uppercase;
+  margin: 1rem;
+}
+
+/* Profile Dropdown Button */
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 #profileDropdown {
-    margin: 0 auto;
-    margin-top: 10px;
-    width: 150px;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 150px;
 }
 
-#profileDropdown-button{
-    padding: 10px;
-    background: white;
-    /* border-radius: 20px; */
+#profileDropdown-button {
+  padding: 10px;
+  background: white;
+  /* border-radius: 20px; */
 }
 
-#profileDropdown-button a{
-    color: #333;
-    text-decoration: none;  
+#profileDropdown-button a {
+  color: #333;
+  text-decoration: none;
 }
 
 #profileDropdown ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 #profileDropdown ul li {
-    padding: 10px 5px;
-    background: white;
-    display: none;
-    opacity: 0; 
+  padding: 10px 5px;
+  background: white;
+  display: none;
+  opacity: 0;
 }
 
-#profileDropdown:hover li{
-    animation: load 1s forwards;
-    display: block;
+#profileDropdown:hover li {
+  animation: load 1s forwards;
+  display: block;
 }
 
-@keyframes load{
-    0%{
-        transform: translateX(25px) scale(0.6);
-    }
-    100%{
-        transform: translateX(0px) scale(1);
-        opacity: 1;
-    }
+@keyframes load {
+  0% {
+    transform: translateX(25px) scale(0.6);
+  }
+  100% {
+    transform: translateX(0px) scale(1);
+    opacity: 1;
+  }
 }
 
-#profileDropdown li:first-child{
-    animation-delay: 0;
+#profileDropdown li:first-child {
+  animation-delay: 0;
 }
 
-#profileDropdown li:nth-child(2){
-    animation-delay: 0.1s;
+#profileDropdown li:nth-child(2) {
+  animation-delay: 0.1s;
 }
 
-#profileDropdown li:last-child{
-    animation-delay: 0.3s;
+#profileDropdown li:last-child {
+  animation-delay: 0.3s;
 }
+<<<<<<< HEAD
   
   
 /* Profile Sidebar */
 
+=======
+>>>>>>> 4b119200cf3fe97dca7eb7f14e021be36b6a1364

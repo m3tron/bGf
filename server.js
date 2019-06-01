@@ -37,11 +37,12 @@ require("./config/middleware/auth");
 // routes
 app.use("/", require("./routes/controller"));
 app.use("/users/", require("./routes/users"));
+app.use(controller);
 app.use(transactions);
 
 // sync db and start server
-db.sequelize.sync().then(function () {
-  app.listen(PORT, function () {
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
     console.log(`Listening on http://localhost:${PORT}`);
   });
 });

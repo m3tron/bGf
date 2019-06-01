@@ -26,6 +26,7 @@
         <div class="col-lg-6">
             <div id="ui">
                 <h1 class="text-center">REGISTER NOW</h1>
+                {{> errorMessages}}
                 <form action="/users/register" method="POST" class="form-group text-center">
                     {{!-- <div class="row">
                         <div class="col-lg-6">
@@ -37,20 +38,24 @@
                             <input type="text" name="lname" class="form-control" placeholder="Enter your last name">
                         </div>
                     </div> --}}
-                    <label for=""> Username</label>
-                    <input type="email" name="email" class="form-control" placeholder="Enter your new username...">
+                    <label for="newName">Name</label>
+                    <input type="text" name="newName" id="newName" class="form-control"
+                        placeholder="Enter your new name...">
                     <br>
-                    <label for=""> Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="Enter your E-mail...">
+                    <label for="newEmail"> Email</label>
+                    <input type="email" name="newEmail" id="newEmail" class="form-control"
+                        placeholder="Enter your E-mail...">
                     <br>
                     <div class="row">
                         <div class="col-lg-6">
                             <label>Password:</label>
-                            <input type="password" name="fname" class="form-control" placeholder="Enter new password..">
+                            <input type="password" name="newPassword" id="newPassword" class="form-control"
+                                placeholder="Enter new password..">
                         </div>
                         <div class="col-lg-6">
-                            <label>Re-type Password:</label>
-                            <input type="password" name="lname" class="form-control" placeholder="Re-type again..">
+                            <label>Retype Password:</label>
+                            <input type="password" name="newPassword2" id="newPassword2" class="form-control"
+                                placeholder="Re-type again..">
                         </div>
                     </div>
                     <br>
