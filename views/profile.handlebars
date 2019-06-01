@@ -3,8 +3,8 @@
     <a class="nav-link" href="#">Profile</a>
 </nav> --}}
 
-<div class="">
-    <nav class="navbar navbar-expand-lg navbar-dark  fixed-top">
+<div class="col-6-sm col-6-md col-6-lg">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class=" navbar-collapse" id="navbarSupportedContent">
             <a class="navbar-brand" href="#">
                 <img src="../assets/images/icon.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -18,24 +18,13 @@
             <form class="form-inline my-2 my-lg-0">
                 <ul>
                     <div class="nav-item dropdown">
-                        {{!-- <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                            data-display="static" aria-haspopup="true" aria-expanded="false">
-                            Profile
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-lg-right">
-                            <button class="dropdown-item" type="button">"User's username or fullname"</button>
-                            <button class="dropdown-item" type="button">App Settings</button>
-                            <div class="dropdown-divider"></div>
-                            <button class="dropdown-item" type="button">Log out</button>
-                        </div> --}}
                         <div class="dropdown" id="profileDropdown">
                             <div class="dropdown-button" id="profileDropdown-button">
                                 <a href="#">PROFILE</a>
                             </div>
                             <ul>
                                 <li><button class="dropdown-item" type="button">"User"</button></li>
-                                <li><button class="dropdown-item" type="button" href="/users/index">Log out</button>
+                                <li><button class="dropdown-item" type="button" href="/users/logout">Log out</button>
                                 </li>
                             </ul>
                         </div>
@@ -53,12 +42,18 @@
 <br>
 <br>
 <br>
+<div class="container">
+    <div class="col-6-sm col-6-md col-6-lg">
 
-<div class="container mt-5">
+        <h1 class="ProfileWelcome"> Hello{{name}} </h1>
 
-    <h1 class="ProfileWelcome"> Hello{{name}} </h1>
-    <br>
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+    </div>
+</div>
+<br>
+
+<div class="col-6-sm col-6-md col-6-lg">
+
+    <div class="btn-group-vertical btn-group-toggle fixed" data-toggle="buttons">
         <label class="btn btn-secondary active">
             <input type="radio" name="options" id="option1" autocomplete="off" checked> 1 Month
         </label>
@@ -68,16 +63,13 @@
         <label class="btn btn-secondary">
             <input type="radio" name="options" id="option3" autocomplete="off"> 1 Year
         </label>
-    </div>
-    <br>
-    <br>
-
-    <div class="row justify-content-center">
-
-        <br><br>
-        <div class="row justify-content-center">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                data-whatever="@mdo">New Transaction</button>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> All Transaction
+        </label>
+        <br>
+        <div class="row">
+            <button id="newTransaction" type="button" class="btn btn-primary ml-2" data-toggle="modal"
+                data-target="#exampleModal" data-whatever="@mdo"> New Transaction</button>
 
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
@@ -122,10 +114,9 @@
                 </div>
             </div>
         </div>
-        <br>
-        <br>
-        <br>
     </div>
+
+
 
 
     <footer>

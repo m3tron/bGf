@@ -13,12 +13,12 @@
 </form> --}}
 
 <div class="modal-dialg text-center">
-    <div class="col-sm-4 main-section">
+    <div class="col-sm-12 col-md-8 col-lg-5 main-section">
         <div class="modal-content">
-            <div class="col-12 user-img">
+            <div class="col-sm-12 col-md-12 col-lg-12 user-img">
                 <img src="../assets/images/profileImage.png" alt="">
             </div>
-            <form class="col-12" action="/users/login" method="POST">
+            <form class="col-sm-12 col-md-12 col-lg-12" action="/users/login" method="POST">
                 <div class="form-group">
                     <input type="email" class="form-control" placeholder="Enter Email Address">
                 </div>
@@ -27,7 +27,7 @@
                 </div>
                 <button type="submit" class="btn"><i class="fas fa-sign-in-alt"></i>Login</button>
             </form>
-            <div class="col-12 register">
+            <div class="col-sm-12 col-md-12 col-lg-12 register">
                 <a href="/api/register">Click here to register</a>
             </div>
         </div> <!-- End of Modal Content  -->
@@ -37,20 +37,3 @@
 <footer>
     <div class="footer">&copy; Copyright 2019</div>
 </footer>
-
-<style>
-    .footer {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        background-color: black;
-        color: white;
-        text-align: center;
-    }
-
-    th {
-        background-color: grey;
-        color: white;
-    }
-</style>

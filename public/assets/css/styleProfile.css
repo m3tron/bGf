@@ -2,7 +2,6 @@ body {
     overflow-x: hidden;
     font-family: 'Lato', sans-serif;
     color: #b2c5da;
-    background-size:cover;
     background-image: url(../images/profileBackground.jpeg);
   }
   
@@ -106,3 +105,5 @@ body {
 }
   
   
+/* Profile Sidebar */
+
