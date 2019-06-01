@@ -18,17 +18,19 @@
             <div class="col-12 user-img">
                 <img src="../assets/images/profileImage.png" alt="">
             </div>
+            {{> errorMessages}}
             <form class="col-12" action="/users/login" method="POST">
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Enter Email Address">
+                    <input name="email" type="email" id="email" class="form-control" placeholder="Enter Email Address">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Enter Password">
+                    <input type="password" name="password" id="password" class="form-control"
+                        placeholder="Enter Password">
                 </div>
                 <button type="submit" class="btn"><i class="fas fa-sign-in-alt"></i>Login</button>
             </form>
             <div class="col-12 register">
-                <a href="/api/register">Click here to register</a>
+                <a href="/users/register">Click here to register</a>
             </div>
         </div> <!-- End of Modal Content  -->
     </div>
