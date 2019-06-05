@@ -71,7 +71,7 @@ router.post("/register", function(req, res) {
             name: name,
             email: email,
             password: password
-          }).then(res.render("login", { success }));
+          }).then(res.render("login", { success, style: "styleLogin.css" }));
         });
       }
     });
