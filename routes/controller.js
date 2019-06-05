@@ -9,7 +9,7 @@ var transactions = require("../models/transactions.js");
 // The main index page
 router.get("/", function(req, res) {
   res.render("index", {
-    style: "style.css"
+    style: "styleIndex.css"
   });
 });
 

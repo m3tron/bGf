@@ -1,13 +1,35 @@
-<nav class="navbar navbar-expand-lg navbar-dark  fixed-top">
-    <div class=" navbar-collapse" id="navbarSupportedContent">
-        <a class="navbar-brand" href="#">
-            <img src="../assets/images/icon.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-            BudgetFriendly
-        </a>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
-            </li>
+{{!-- <nav class="nav">
+    <a class="nav-link active" href="#">Home</a>
+    <a class="nav-link" href="#">Profile</a>
+</nav> --}}
+
+<div class="col-6-sm col-6-md col-6-lg">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class=" navbar-collapse" id="navbarSupportedContent">
+            <a class="navbar-brand" href="#">
+                <img src="../assets/images/icon.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                BudgetFriendly
+            </a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <ul>
+                    <div class="nav-item dropdown">
+                        <div class="dropdown" id="profileDropdown">
+                            <div class="dropdown-button" id="profileDropdown-button">
+                                <a href="#">PROFILE</a>
+                            </div>
+                            <ul>
+                                <li><button class="dropdown-item" type="button">"User"</button></li>
+                                <li><button class="dropdown-item" type="button" href="/users/logout">Log out</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+        </div>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <ul>
@@ -43,7 +65,7 @@
                                 </div>
             </ul>
         </form>
-    </div>
+</div>
 </nav>
 </div>
 
@@ -53,12 +75,18 @@
 <br>
 <br>
 <br>
+<div class="container">
+    <div class="col-6-sm col-6-md col-6-lg">
 
-<div class="container mt-5">
+        <h1 class="ProfileWelcome"> Hello{{name}} </h1>
 
-    <h1 class="ProfileWelcome"> Hello{{User.name}} </h1>
-    <br>
-    <div class="btn-group btn-group-toggle" data-toggle="buttons" id="timeOptions">
+    </div>
+</div>
+<br>
+
+<div class="col-6-sm col-6-md col-6-lg">
+
+    <div class="btn-group-vertical btn-group-toggle fixed" data-toggle="buttons">
         <label class="btn btn-secondary active">
             <input type="radio" name="options" id="option1" autocomplete="off" value="all" checked> All transactions
         </label>
@@ -210,10 +238,9 @@
                 </div>
             </div>
         </div>
-        <br>
-        <br>
-        <br>
     </div>
+
+
 
 
     <footer>
