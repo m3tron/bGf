@@ -103,7 +103,23 @@
     <br>
     <br>
 
-    <div id="tableContainer"></div>
+    <div class="row">
+        <div class="col-6">
+            <div id="tableContainer" style="color:black"></div>
+            <br><br>
+            <div class="row justify-content-center">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    data-whatever="@mdo">New Transaction</button>
+            </div>
+        </div>
+
+        {{!-- canvas for chart --}}
+        <div class="col-6">
+            <div>
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
     <script>
         function populateTransactions(value) {
             if (value == "all") {
@@ -125,13 +141,62 @@
             populateTransactions(event.target.value);
         });
         populateTransactions("all");
+        // chart code
+        function renderPie(pieData, categorylabels) {
+            var ctx = $("#myChart");
+            var chart = new Chart(ctx, {
+                type: "pie",
+                data: { datasets: [{ data: pieData, backgroundColor: ["rgb(255, 0, 0)", "rgba(28,0,81)", "rgb(77,166,255)", "rgb(255,153,255)", "rgb(221,255,51)", "rgb(255,170,128)", "rgb(76,0,230)", "rgb(102,17,0)"] }], labels: categorylabels }
+            });
+        }
+        $.get("/chart").then(function (data) {
+            var utilitiesAmount = 0;
+            var automotiveAmount = 0;
+            var healthAmount = 0;
+            var housingAmount = 0;
+            var groceryAmount = 0;
+            var entertainmentAmount = 0;
+            var educationAmount = 0;
+            var miscAmount = 0;
+            var amountArray = [];
+            for (var i = 0; i < data.length; i++) {
+                switch (data[i].category) {
+                    case 'Utilities':
+                        utilitiesAmount += parseFloat(data[i].amount);
+                        break;
+                    case 'Automotive':
+                        automotiveAmount += parseFloat(data[i].amount);
+                        break;
+                    case 'Health':
+                        healthAmount += parseFloat(data[i].amount);
+                        break;
+                    case 'Housing':
+                        housingAmount += parseFloat(data[i].amount);
+                        break;
+                    case 'Grocery':
+                        groceryAmount += parseFloat(data[i].amount);
+                        break;
+                    case 'Entertainment':
+                        entertainmentAmount += parseFloat(data[i].amount);
+                        break;
+                    case 'Education':
+                        educationAmount += parseFloat(data[i].amount);
+                        break;
+                    case 'Misc':
+                        miscAmount += parseFloat(data[i].amount);
+                        break;
+                }
+            }
+            var amountArray = [automotiveAmount, educationAmount, entertainmentAmount, groceryAmount, healthAmount, housingAmount, miscAmount, utilitiesAmount];
+            var labels = ['Automotive', 'Education', 'Entertainment', 'Grocery', 'Health', 'Housing', 'Misc', 'Utilities']
+            renderPie(amountArray, labels)
+
+        });
     </script>
     <div class="row justify-content-center">
 
         <br><br>
         <div class="row justify-content-center">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                data-whatever="@mdo">New Transaction</button>
 
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
@@ -198,3 +263,4 @@
             color: white;
         }
     </style>
+    Collapse
